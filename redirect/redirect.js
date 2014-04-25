@@ -1,20 +1,15 @@
-console.log("poop");
-//chrome.extension.onRequest.addListener(function(request, sender) {
-//        chrome.tabs.update(sender.tab.id, {url: request.redirect});});
-
 bad = []
 
 badDirId = 0
 
 function find_bad(tree){
 	badDirId = tree[0].id;
-	links = chrome.bookmarks.getChildren(tree[0].id, function(child){
+	links = chrome.bookmarks.getChildren(badDirId, function(child){
 		v = Array(child.length);
 		for (var i =0; i < child.length; i++) {
 			v[i] = child[i].url
 		}
 		bad = v;
-		console.log(bad)
 		})
 }
 

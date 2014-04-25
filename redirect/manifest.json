@@ -14,9 +14,6 @@
 	"tabs",
     "activeTab",
     "webRequest",
-    "*://facebook.com/*",
-    "*://www.facebook.com/*",
-    "*://nytimes.com/*",
     "webRequestBlocking",
     "bookmarks"
   ]

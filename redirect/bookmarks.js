@@ -1,21 +1,20 @@
 function process_bookmark(bookmarks) {
-	var s = "";
-    for (var i =0; i < bookmarks.length; i++) {
-        var bookmark = bookmarks[i];
-        if (bookmark.url) {
-            s+=("<p><a href = "+bookmark.url+">"+ bookmark.title + "</a></p>");
-        }
 
-        if (bookmark.children) {
-            s+=process_bookmark(bookmark.children);
-        }
+  bId = bookmarks[0].id;
+  
+  chrome.bookmarks.getChildren(bId, function(child){
+    var s = "";
+    console.log(child);
+    for (var i = 0; i < child.length; i++){
+      if (child[i].url) {
+        s+=("<p class = \"link\"><a href = "+child[i].url+">"+ child[i].title + "</a></p>");
+      }
     }
-	
     $("#content").html(s);
-	return s;
+  
+  });
 }
+chrome.bookmarks.search("RedirectMeUnread", process_bookmark)
 
 
-
-chrome.bookmarks.getTree(process_bookmark)
 
