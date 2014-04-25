@@ -2,9 +2,17 @@
   "name": "From Facebook to NYTimes",
   "version": "0.2",
   "description": "Redirect from Facebook to NYTimes",
-  "background": {"scripts":["background.js"]},
+  "background": {"page":"bg.html"
+	},
   "manifest_version": 2,
+  "content_scripts": [
+	{
+	  "matches": ["http://*/*","https://*/*"],
+	  "js": ["content.js"]
+	}],
   "permissions": [
+	"tabs",
+    "activeTab",
     "webRequest",
     "*://facebook.com/*",
     "*://www.facebook.com/*",

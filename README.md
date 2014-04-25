@@ -1,4 +1,4 @@
 RedirectMe
 ==========
 
-Techcomm wooo
+Techcomm -- specific info in redirect folder!

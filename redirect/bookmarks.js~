@@ -3,7 +3,7 @@ function process_bookmark(bookmarks) {
     for (var i =0; i < bookmarks.length; i++) {
         var bookmark = bookmarks[i];
         if (bookmark.url) {
-            s+=("<p>bookmark: "+ bookmark.title + " ~  " + bookmark.url+"</p>");
+            s+=("<p><a href = "+bookmark.url+">"+ bookmark.title + "</a></p>");
         }
 
         if (bookmark.children) {

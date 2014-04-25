@@ -1,8 +1,8 @@
 var host = chrome.extension.getURL('page.html');
-console.log(host)
+
 chrome.webRequest.onBeforeRequest.addListener(
     function(details) {
-         return {redirectUrl: host + details.url.match(/^https?:\/\/[^\/]+([\S\s]*)/)[1]};
+         return {redirectUrl: host };
     },
     {
         urls: [
@@ -13,3 +13,6 @@ chrome.webRequest.onBeforeRequest.addListener(
     },
     ["blocking"]
 );
+
+
+chrome.runtime.onMessage.addListener(function callback)
