@@ -7,7 +7,8 @@ function process_bookmark(bookmarks) {
     var s = "";
     for (var i = 0; i < child.length; i++){
       if (child[i].url) {
-        $("#content").append("<p class = \"link\"><a href = "+child[i].url+">"+ child[i].title + "</a></p>");
+        s = "<p class = \"link\"><a id = \"url\" href = \""+child[i].url+"\">"+ child[i].title + "</a></p>";
+        $("#content").append(s);
       }
     }
   
@@ -15,13 +16,8 @@ function process_bookmark(bookmarks) {
 }
 chrome.bookmarks.search("RedirectMeUnread", process_bookmark)
 
-//Move bookmarks to read when clicked
-//Neither of these attempts works properly :(
-$( "#url" ).click(function() {
-    console.log( "Handler for .click() called." );
-});
 
-$(document).on('click', 'p', function () {
-      console.log(this);
+$(document).on('click', '#url', function () {
+  console.log(this.href);
 });
 
