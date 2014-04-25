@@ -1,0 +1,8 @@
+manifest - info about extension, required by chrome
+content.js - run on every page, sends current url to the background script. It takes some time to load, so bad page can be temporarily visited; however, there is no better solution for running a script on any arbitary page.
+
+bg.html - page associated with the background script. It is needed to run the redirection script and is never actually shown.
+redirect.js - looks at current page and redirects to page.html, if the current page is in the bad bookmark directory.
+
+page.html - redirection page that displays bookmarks
+bookmarks.js - script that generates the bookmarks for page.html

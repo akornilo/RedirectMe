@@ -1,21 +1,27 @@
+//Find bookmarks to print out
 function process_bookmark(bookmarks) {
-	var s = "";
-    for (var i =0; i < bookmarks.length; i++) {
-        var bookmark = bookmarks[i];
-        if (bookmark.url) {
-            s+=("<p><a href = "+bookmark.url+">"+ bookmark.title + "</a></p>");
-        }
 
-        if (bookmark.children) {
-            s+=process_bookmark(bookmark.children);
-        }
+  bId = bookmarks[0].id;
+  
+  chrome.bookmarks.getChildren(bId, function(child){
+    var s = "";
+    for (var i = 0; i < child.length; i++){
+      if (child[i].url) {
+        $("#content").append("<p class = \"link\"><a href = "+child[i].url+">"+ child[i].title + "</a></p>");
+      }
     }
-	
-    $("#content").html(s);
-	return s;
+  
+  });
 }
+chrome.bookmarks.search("RedirectMeUnread", process_bookmark)
 
+//Move bookmarks to read when clicked
+//Neither of these attempts works properly :(
+$( "#url" ).click(function() {
+    console.log( "Handler for .click() called." );
+});
 
-
-chrome.bookmarks.getTree(process_bookmark)
+$(document).on('click', 'p', function () {
+      console.log(this);
+});
 
