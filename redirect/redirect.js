@@ -23,7 +23,8 @@ chrome.runtime.onMessage.addListener(function(message, sender){
 
 
 chrome.bookmarks.onCreated.addListener(function (id, bookmark){
-	if(bookmark.parentId == badDirId){
+	console.log(bookmark);
+  if(bookmark.parentId == badDirId){
 		bad.push(bookmark.url);
 	}
 })

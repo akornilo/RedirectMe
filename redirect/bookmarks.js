@@ -32,7 +32,6 @@ function moveUrl(pageURL) {
 			//Search for the bookmarks that match the URL clicked and move them into the read folder 
       chrome.bookmarks.search(pageURL, function(results){
         for (var i = 0; i < results.length; i++){
-          
 				  console.log(results[i], folder);
 					chrome.bookmarks.move(results[i].id, {parentId: folder.id}, function(result) { console.log("STRING");});
         }
