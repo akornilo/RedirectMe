@@ -14,7 +14,7 @@ function process_bookmark(bookmarks) {
   
   });
 }
-chrome.bookmarks.search("RedirectMeUnread", process_bookmark)
+chrome.bookmarks.search("ReadirectMeUnread", process_bookmark)
 
 
 //given a url, finds the chrome bookmark and moves it into another folder
@@ -25,7 +25,7 @@ chrome.bookmarks.search("RedirectMeUnread", process_bookmark)
 function moveUrl(pageURL) {
 	//Find read folder
   console.log(":(")
-	chrome.bookmarks.search("RedirectMeRead", function(read){
+	chrome.bookmarks.search("ReadirectMeRead", function(read){
 			console.log(read);
 		if (read.length > 0){
 			var folder = read[0];

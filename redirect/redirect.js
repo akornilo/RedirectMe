@@ -13,7 +13,7 @@ function find_bad(tree){
 		})
 }
 
-chrome.bookmarks.search("RedirectMeBadPages",find_bad);
+chrome.bookmarks.search("ReadirectMeBadPages",find_bad);
 
 chrome.runtime.onMessage.addListener(function(message, sender){
 	if(bad.indexOf(message.url) >= 0){
